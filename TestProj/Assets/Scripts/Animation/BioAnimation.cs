@@ -10,14 +10,14 @@ public class BioAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private IEnumerator OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("+");
-            animator.SetTrigger("Run");
-            yield return new WaitForSeconds(2);
-            animator.SetTrigger("Walk");
-            animator.ResetTrigger("Run");
+           // Debug.Log("+");
+          //  animator.SetTrigger("Run");
+           // yield return new WaitForSeconds(2);
+           // animator.SetTrigger("Walk");
+          //  animator.ResetTrigger("Run");
         }
     }
 

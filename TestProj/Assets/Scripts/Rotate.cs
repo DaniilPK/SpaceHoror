@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
+ 
+    private int sc;
    public GameObject Coin;
+   public GameObject Player;
     void Update()
     {
-       transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
+        sc = GameController.Score;
+        transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
-        { 
-             Destroy(Coin);
+        if (other.gameObject.tag == Player.gameObject.tag)
+        {
+            
+            sc++;
+            GameController.Score = sc;
+            Debug.Log(sc);
+            Destroy(Coin.gameObject);
         }
     }
 
