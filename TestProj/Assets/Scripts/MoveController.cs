@@ -7,8 +7,9 @@ public class MoveController : MonoBehaviour
 
     public CharacterController controller;
 
+    public bool mov = false;
     public float speed;
-    public float gravity = -9.18f;
+    public float gravity = -9f;
     public float jumpHeight = 3f;
 
     public Transform groundCheck;
@@ -21,13 +22,13 @@ public class MoveController : MonoBehaviour
 
     void Update()
     {
+       mov = GravityCube.MV;
+      isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-       // isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-       // if (isGrounded && velocity.y < 0)
-       // {
-       //     velocity.y = -2f;
-       // }
+      if ( velocity.y < 0)
+        {
+        velocity.y = -2f;
+      }
         
        
 
@@ -38,13 +39,18 @@ public class MoveController : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-     //   if (Input.GetButtonDown("Jump") && isGrounded)
-      //  {
-      //      velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-      //  }
+       if (mov)
+       {
+            Debug.Log("+");
+            velocity.y = Mathf.Sqrt(jumpHeight * -0.2f * gravity);
+            
+       }
+      
 
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
     }
+
+   
 }

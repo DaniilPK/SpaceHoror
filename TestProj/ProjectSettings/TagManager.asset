@@ -9,6 +9,7 @@ TagManager:
   - TestFloor
   - Bio
   - Coin
+  - GravityCube
   layers:
   - Default
   - TransparentFX

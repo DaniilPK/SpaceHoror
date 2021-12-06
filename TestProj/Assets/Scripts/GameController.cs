@@ -5,16 +5,16 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public static int Score;
-    [SerializeField] private Text txt;
     [SerializeField] private Text txt2;
+    [SerializeField] private Text txt;
     private int sc;
     private void Update()
     {
         // fps = 1.0f / Time.deltaTime; 
         // txt.text = "Fps: " + (int)fps;  фпс
-    /* Время */    txt.text = "Time: " + System.DateTime.Now.Hour + ":" + System.DateTime.Now.Minute + ":" + System.DateTime.Now.Second;
+    /* Время */    txt2.text = "Time: " + System.DateTime.Now.Hour + ":" + System.DateTime.Now.Minute + ":" + System.DateTime.Now.Second;
 
         sc = GameController.Score;
-        txt2.text = "Score: " + sc;// Результат
+        txt.text = "Score: " + sc;// Результат
     }
 }
