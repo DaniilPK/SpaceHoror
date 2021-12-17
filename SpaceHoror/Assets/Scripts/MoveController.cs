@@ -19,10 +19,10 @@ public class MoveController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-
     void Update()
     {
-       mov = GravityCube.MV;
+        
+        mov = GravityCube.MV;
       isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
       if ( velocity.y < 0)
@@ -52,5 +52,18 @@ public class MoveController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-   
+    /*  private void OnTriggerEnter(Collider other)
+      {
+
+          if (other.gameObject.tag == "Teleport")
+          {
+              transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+              Debug.Log("+");
+
+              //transform.position = new Vector3(-27.98f, 1f, 0);
+              //  transform.position += new Vector3(-27.98f, 1f, 0) * speed * Time.deltaTime;
+              //  transform.Translate(-27.98f, 1f, 0);
+
+          }
+      }*/
 }
